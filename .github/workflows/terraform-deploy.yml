@@ -38,10 +38,10 @@ jobs:
         run: terraform validate
 
       - name: ⚙️ Terraform Plan
+        working-directory: ./Infra
         run: |
-         cd Infra
-         terraform init
          terraform plan
+
 
       - name: 🚀 Terraform Apply
         run: terraform apply -auto-approve
