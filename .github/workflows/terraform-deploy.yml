@@ -39,7 +39,7 @@ jobs:
 
       - name: Terraform Plan
         run: terraform plan
-        working-directory: ./terraform  # adjust to your actual folder
+        working-directory: ./infra  # adjust to your actual folder
 
 
       - name: 🚀 Terraform Apply
