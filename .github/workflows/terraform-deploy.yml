@@ -30,7 +30,8 @@ jobs:
 
       - name: 📦 Initialize Terraform
         run: terraform init
-
+        working-directory: ./infra
+         
       - name: 🔍 Terraform Format Check
         run: terraform fmt -check 
 
