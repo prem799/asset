@@ -37,8 +37,10 @@ jobs:
       - name: 📋 Terraform Validate
         run: terraform validate
 
-      - name: 🧪 Terraform Plan
+      - name: Terraform Plan
         run: terraform plan
+        working-directory: ./terraform  # adjust to your actual folder
+
 
       - name: 🚀 Terraform Apply
         run: terraform apply -auto-approve
