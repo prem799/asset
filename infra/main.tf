@@ -42,3 +42,14 @@ resource "aws_ecs_service" "this" {
 
   depends_on = [aws_ecs_task_definition.this]
 }
+
+  load_balancer {
+    target_group_arn = aws_lb_target_group.ecs_tg.arn
+    container_name   = var.container_name
+    container_port   = var.container_port
+  }
+
+
+
+
+
