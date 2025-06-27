@@ -40,14 +40,17 @@ resource "aws_ecs_service" "this" {
     assign_public_ip = true
   }
 
-  depends_on = [aws_ecs_task_definition.this]
-}
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.ecs_tg.arn
+    target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:359074990398:targetgroup/mark42/188e427bc89601ad"
     container_name   = var.container_name
     container_port   = var.container_port
   }
+
+  depends_on = [aws_ecs_task_definition.this]
+}
+
+ 
 
 
 
