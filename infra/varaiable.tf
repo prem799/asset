@@ -39,6 +39,18 @@ variable "security_group_id" {
   type        = list(string)
 }
 
-variable "service_sg" {}
-variable "container_name" {}
-variable "container_port" {}
+variable "service_sg" {
+  description = "Security group ID for the service"
+  type        = string
+}
+
+variable "container_name" {
+  description = "Container name in the task definition"
+  type        = string
+}
+
+variable "container_port" {
+  description = "Container port to expose"
+  type        = number
+}
+
