@@ -39,11 +39,6 @@ variable "security_group_ids" {
   type        = list(string)
 }
 
-variable "service_sg" {
-  description = "Security group ID for the service"
-  type        = string
-}
-
 variable "container_name" {
   description = "Container name in the task definition"
   type        = string
