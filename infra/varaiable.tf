@@ -38,3 +38,7 @@ variable "security_group_id" {
   description = "Security group IDs"
   type        = list(string)
 }
+
+variable "service_sg" {}
+variable "container_name" {}
+variable "container_port" {}
