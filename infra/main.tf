@@ -1,4 +1,3 @@
-# ECS Cluster
 resource "aws_ecs_cluster" "this" {
   name = var.cluster_name
 }
@@ -13,13 +12,13 @@ resource "aws_ecs_task_definition" "this" {
 
   container_definitions = jsonencode([
     {
-      name      = var.task_family
+      name      = var.container_name
       image     = var.container_image
       essential = true
       portMappings = [
         {
-          containerPort = 80
-          hostPort      = 80
+          containerPort = var.container_port
+          hostPort      = var.container_port
           protocol      = "tcp"
         }
       ]
@@ -36,10 +35,9 @@ resource "aws_ecs_service" "this" {
 
   network_configuration {
     subnets         = var.subnet_ids
-    security_groups = var.security_group_id
+    security_groups = var.security_group_ids
     assign_public_ip = true
   }
-
 
   load_balancer {
     target_group_arn = "arn:aws:elasticloadbalancing:us-east-1:359074990398:targetgroup/mark42/188e427bc89601ad"
@@ -49,6 +47,7 @@ resource "aws_ecs_service" "this" {
 
   depends_on = [aws_ecs_task_definition.this]
 }
+
 
  
 
